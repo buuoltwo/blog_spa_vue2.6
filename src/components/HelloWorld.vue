@@ -42,8 +42,17 @@ export default {
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style scoped lang="less">
+
+.heo {
+  color: blueviolet;
+  cursor: pointer;
+}
 h3 {
   margin: 40px 0 0;
+
+  &:hover {
+    .heo()
+  }
 }
 ul {
   list-style-type: none;
@@ -55,5 +64,9 @@ li {
 }
 a {
   color: #42b983;
+  
+  &:hover {
+    .heo();
+  }
 }
 </style>
