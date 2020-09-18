@@ -1,5 +1,5 @@
-import request from './request'
+import request from './request2'
 
 window.request = request
 
-request("/auth/register", "POST", {username:'',password:''})
+request("/auth/register", "POST", {username:'buool2',password:'42jdjk'})
