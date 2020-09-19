@@ -22,7 +22,7 @@
     <template v-else>
       <h1>Let's share</h1>
       <i class="edit el-icon-edit"></i>
-      <!-- <div class="user">
+      <div class="user">
         <img class="avatar" :src="user.avatar" :alt="user.username" :title="user.username" />
         <ul>
           <li>
@@ -32,19 +32,23 @@
             <a href="#" @click="onLogout">注销</a>
           </li>
         </ul>
-      </div> -->
+      </div>
     </template>
   </header>
 </template>
 
 <script>
+import { mapGetters } from "vuex"
 export default {
   data() {
     return {
       isTesting: false,
-      isLogin: false,
-    };
+      // isLogin: false,
+    }
   },
+  computed: {
+      ...mapGetters(["user","isLogin"])
+  }
 };
 </script>
 
@@ -109,6 +113,46 @@ header.login {
   .edit {
     color: #fff;
     font-size: 30px;
+  }
+  
+  .avatar {
+    width: 40px;
+    height: 40px;
+    border: 1px solid #fff;
+    border-radius: 50%;
+    margin-left: 15px;
+  }
+
+  .user {
+    position: relative;
+
+    ul {
+      display: none;
+      position: absolute;
+      right: 0;
+      list-style: none;
+      border: 1px solid #eaeaea;
+      margin:0;
+      padding: 0;
+      background-color: #fff;
+
+      a {
+        text-decoration: none;
+        color: #333;
+        font-size: 12px;
+        display: block;
+        padding: 5px 10px;
+
+        &:hover {
+          background-color: #eaeaea;
+        }
+      }
+
+    }
+
+    &:hover ul {
+      display: block;
+    }
   }
 
 

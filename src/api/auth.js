@@ -11,7 +11,7 @@ const Auth = {
   register({username,password}) {
     return request(URL.REGISTER, 'POST', {username, password})
   },
-  register({username,password}) {
+  login({username,password}) {
     return request(URL.LOGIN, 'POST', {username, password})
   },
   logout() {

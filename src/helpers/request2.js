@@ -23,7 +23,7 @@ const request = (url, type='GET', data={}) => {
       axios.defaults.headers.common['Authorization']  = localStorage.token
     }
     axios(option).then(res => {
-      console.log(res.data)
+      // console.log(res.data)
       //---------
       if(res.data.status === 'ok') {
         if(res.data.token) {
