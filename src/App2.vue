@@ -42,6 +42,7 @@ export default {
   grid-area: ~"3/1/4/4";
 }
 main {
+  padding: 30px;
   grid-area: ~"2/2/3/3";
   // flex:1;
 }

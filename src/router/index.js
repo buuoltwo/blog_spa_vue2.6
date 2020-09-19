@@ -17,7 +17,17 @@ Vue.use(VueRouter)
     // this generates a separate chunk (about.[hash].js) for this route
     // which is lazy-loaded when the route is visited.
     component: () => import(/* webpackChunkName: "about" */ '../views/About.vue')
-  }
+  },
+  {
+    path: '/register',
+    name: 'Register',
+    component: () => import('../pages/register/register.vue') 
+  },
+  {
+    path: '/login',
+    name: 'Login',
+    component: () => import('../pages/login/template.vue') 
+  },
 ]
 
 const router = new VueRouter({

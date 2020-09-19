@@ -42,7 +42,7 @@ export default {
   data() {
     return {
       isTesting: false,
-      isLogin: true,
+      isLogin: false,
     };
   },
 };
