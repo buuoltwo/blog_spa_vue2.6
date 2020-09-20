@@ -38,7 +38,7 @@
 </template>
 
 <script>
-import { mapGetters } from "vuex"
+import { mapGetters, mapActions } from "vuex"
 export default {
   data() {
     return {
@@ -48,6 +48,18 @@ export default {
   },
   computed: {
       ...mapGetters(["user","isLogin"])
+  },
+  methods: {
+    onLogout(){
+      this.logout()
+    },
+    ...mapActions([
+      'logout',
+      'checkLogin'
+    ]),
+  },
+  created() {
+    this.checkLogin()
   }
 };
 </script>

@@ -11,7 +11,6 @@ const getters = {
 
 const mutations = {
   setUser(state, payload) {
-    console.log(">>>>")
     state.user = payload.user
   },
   setLogin(state, payload) {
@@ -27,6 +26,24 @@ const actions = {
         commit("setUser",{user: res.data})
         commit("setLogin",{isLogin: true})
       })
+  },
+  async logout({commit}){
+    // let res = await Auth.logout()
+    await Auth.logout()
+    commit('setUser', {user: null})
+    commit('setLogin', {isLogin: false})
+  },
+  async checkLogin({commit, state}){
+    // if(state.isLogin) return true
+    // // console.log("excuted??")
+    // let res = await Auth.getInfo()
+    // console.log(res.isLogin)
+    // commit('setLogin', { isLogin: res.isLogin})
+    // if(!res.isLogin) return false
+    // commit('setUser', { user: res.data })
+    // return true
+      if(state.isLogin) return true
+      return false
   }
 }
 
@@ -36,6 +53,5 @@ const AuthStore = {
   mutations,
   actions
 }
-
 export default AuthStore
 //在page/login/template.js测试login 发现store没有变化，跳转header没有改变
