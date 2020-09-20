@@ -21,7 +21,7 @@
     </template>
     <template v-else>
       <h1>Let's share</h1>
-      <i class="edit el-icon-edit"></i>
+       <router-link to="/create"><i class="edit el-icon-plus"></i></router-link>
       <div class="user">
         <img class="avatar" :src="user.avatar" :alt="user.username" :title="user.username" />
         <ul>
