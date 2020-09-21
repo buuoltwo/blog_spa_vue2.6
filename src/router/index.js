@@ -30,6 +30,12 @@ const routes = [
     name: 'Login',
     component: () => import('../pages/login/template.vue')
   },
+  {
+    path: '/create',
+    name: 'create',
+    component: () => import('../pages/create/create.vue'),
+    // meta: { requiresAuth: true }
+  }
 ]
 
 const router = new VueRouter({
