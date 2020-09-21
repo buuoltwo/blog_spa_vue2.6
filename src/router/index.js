@@ -35,6 +35,11 @@ const routes = [
     name: 'create',
     component: () => import('../pages/create/create.vue'),
     // meta: { requiresAuth: true }
+  },
+  {
+    path: '/detail/:blogId',
+    name: 'detail',
+    component: () => import('../pages/detail/detail.vue'),
   }
 ]
 
