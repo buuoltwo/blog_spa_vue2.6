@@ -9,8 +9,9 @@
         class="item"
         v-for="blog in blogs"
         :key="blog.id"
-        :to="{path: `/detail/${blog.id}`}"
+        :to="{name:'detail', params:{blogId: blog.id}}"
       >
+      <!-- :to="{path: `/detail/${blog.id}`}" -->
         <figure>
           <img :src="blog.user.avatar" :alt="blog.user.username" />
           <figcaption>{{blog.user.username}}</figcaption>
