@@ -2,7 +2,7 @@
   <div class="home">
     <!-- <img alt="Vue logo" src="../assets/logo.png"> -->
     <!-- <HelloWorld msg="Welcome to Your Vue.js App"/> -->
-    <List msg="博客精选"/>
+    <List msg="博客精选" msg2='index'/>
   </div>
 </template>
 

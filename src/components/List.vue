@@ -11,7 +11,7 @@
         :key="blog.id"
         :to="{name:'detail', params:{blogId: blog.id}}"
       >
-      <!-- :to="{path: `/detail/${blog.id}`}" -->
+        <!-- :to="{path: `/detail/${blog.id}`}" -->
         <figure>
           <img :src="blog.user.avatar" :alt="blog.user.username" />
           <figcaption>{{blog.user.username}}</figcaption>
@@ -20,16 +20,23 @@
         <p>{{blog.description}}</p>
       </router-link>
     </section>
-    <section class="pagination"></section>
+    <section class="pagination">
+      <Pagination :parentMessage="{page, total, totalPage}"/>
+    </section>
   </div>
 </template>
 
 <script>
 import Blog from "../api/blog";
+import Pagination from './Pagination'
 
 export default {
   props: {
     msg: "",
+    msg2: "",
+  },
+  components: {
+    Pagination
   },
   data() {
     return {
@@ -40,20 +47,22 @@ export default {
     };
   },
   created() {
-    Blog.getIndexBlogs().then((res) => {
-      // console.log(res)
-      console.log(res.data);
-      this.blogs = res.data;
-      this.page = res.page;
-      this.total = res.total;
-      this.totalPage = res.totalPage;
-    });
+    // console.log(this.msg2)
+    if (this.msg2 === "index") {
+      Blog.getIndexBlogs().then((res) => {
+        console.log(res)
+        console.log(res.data);
+        this.blogs = res.data;
+        this.page = res.page;
+        this.total = res.total;
+        this.totalPage = res.totalPage;
+      });
+    }
   },
 };
 </script>
 
 <style lang="less" scoped>
-
 .item {
   display: grid;
   grid: auto auto / 120px 1fr;
@@ -78,4 +87,4 @@ export default {
     grid-area: ~"2/2/3/3";
   }
 }
-</style>>
+</style>
