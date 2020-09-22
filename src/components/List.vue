@@ -2,13 +2,24 @@
   <div id="index">
     <section class="blog-post">
       <h1>{{msg}}</h1>
-      <ul>
+      <!-- <ul>
         <li v-for="blog in blogs" :key="blog.id">blogId:{{blog.id}}</li>
-      </ul>
+      </ul>-->
+      <router-link
+        class="item"
+        v-for="blog in blogs"
+        :key="blog.id"
+        :to="{path: `/detail/${blog.id}`}"
+      >
+        <figure>
+          <img :src="blog.user.avatar" :alt="blog.user.username" />
+          <figcaption>{{blog.user.username}}</figcaption>
+        </figure>
+        <h3>{{blog.title}}</h3>
+        <p>{{blog.description}}</p>
+      </router-link>
     </section>
-    <section class="pagination">
-
-    </section>
+    <section class="pagination"></section>
   </div>
 </template>
 
@@ -40,5 +51,30 @@ export default {
 };
 </script>
 
-<style>
-</style>
+<style lang="less" scoped>
+
+.item {
+  display: grid;
+  grid: auto auto / 120px 1fr;
+  margin: 20px 0;
+  font-size: 12px;
+
+  figure {
+    grid-area: ~"1/1/3/2";
+
+    img {
+      object-fit: contain;
+      width: 60px;
+      box-shadow: 0 0 2px 0;
+      border-radius: 50%;
+      padding: 10px;
+    }
+  }
+  h3 {
+    grid-area: ~"1/2/2/3";
+  }
+  p {
+    grid-area: ~"2/2/3/3";
+  }
+}
+</style>>
