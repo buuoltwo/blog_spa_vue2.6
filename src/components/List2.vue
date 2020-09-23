@@ -2,16 +2,12 @@
   <div id="index">
     <section class="blog-post">
       <h1>{{msg}}</h1>
-      <!-- <ul>
-        <li v-for="blog in blogs" :key="blog.id">blogId:{{blog.id}}</li>
-      </ul>-->
       <router-link
         class="item"
         v-for="blog in blogs"
         :key="blog.id"
         :to="{name:'detail', params:{blogId: blog.id}}"
       >
-        <!-- :to="{path: `/detail/${blog.id}`}" -->
         <figure>
           <img :src="blog.user.avatar" :alt="blog.user.username" />
           <figcaption>{{blog.user.username}}</figcaption>
@@ -21,22 +17,23 @@
       </router-link>
     </section>
     <section class="pagination">
-      <Pagination :parentMessage="{page, total, totalPage}" @childEvent="parentMethod"/>
+      <el-pagination
+        layout="prev, pager, next"
+        :total="total"
+        @current-change="handleCurrentChange"
+      ></el-pagination>
     </section>
   </div>
 </template>
 
 <script>
 import Blog from "../api/blog";
-import Pagination from './Pagination'
+import Pagination from "./Pagination";
 
 export default {
   props: {
     msg: "",
     msg2: "",
-  },
-  components: {
-    Pagination
   },
   data() {
     return {
@@ -50,8 +47,8 @@ export default {
     // console.log(this.msg2)
     if (this.msg2 === "index") {
       Blog.getIndexBlogs().then((res) => {
-        console.log(res)
-        console.log(res.data);
+        // console.log(res);
+        // console.log(res.data);
         this.blogs = res.data;
         this.page = res.page;
         this.total = res.total;
@@ -60,18 +57,16 @@ export default {
     }
   },
   methods: {
-    parentMethod(res) {
-      console.log(res)
-      // Blog.getIndexBlogs({page}).then((res) => {
-      //   console.log(res)
-      //   console.log(res.data);
-      //   this.blogs = res.data;
-      //   this.page = res.page;
-      //   this.total = res.total;
-      //   this.totalPage = res.totalPage;
-      // });
-    }
-  }
+    handleCurrentChange(page) {
+      console.log(page)
+      Blog.getIndexBlogs({page}).then((res) => {
+        this.blogs = res.data;
+        this.page = res.page;
+        this.total = res.total;
+        this.totalPage = res.totalPage;
+      });
+    },
+  },
 };
 </script>
 

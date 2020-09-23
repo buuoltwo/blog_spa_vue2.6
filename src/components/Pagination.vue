@@ -5,7 +5,7 @@
     <p>fanye</p>-->
     <el-pagination
       layout="prev, pager, next" 
-      :total="total" 
+      :total="50" 
       @current-change="handleCurrentChange"
     ></el-pagination>
   </div>
@@ -31,6 +31,9 @@ export default {
   methods: {
     handleCurrentChange(value) {
       console.log(value)
+      console.log(this)
+      this.$emit('parentMethod', {page: value, age:10})
+      console.log(">>>")
     }
   }
 };
