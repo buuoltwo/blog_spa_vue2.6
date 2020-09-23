@@ -34,16 +34,16 @@ const actions = {
     commit('setLogin', {isLogin: false})
   },
   async checkLogin({commit, state}){
-    // if(state.isLogin) return true
+    if(state.isLogin) return true
     // // console.log("excuted??")
-    // let res = await Auth.getInfo()
-    // console.log(res.isLogin)
-    // commit('setLogin', { isLogin: res.isLogin})
-    // if(!res.isLogin) return false
-    // commit('setUser', { user: res.data })
-    // return true
-      if(state.isLogin) return true
-      return false
+    let res = await Auth.getInfo()
+    console.log(res.isLogin)
+    commit('setLogin', { isLogin: res.isLogin})
+    if(!res.isLogin) return false
+    commit('setUser', { user: res.data })
+    return true
+      // if(state.isLogin) return true
+      // return false
   }
 }
 

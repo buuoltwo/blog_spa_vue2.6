@@ -54,12 +54,21 @@ export default {
         this.total = res.total;
         this.totalPage = res.totalPage;
       });
+    } else if (this.msg2 === "user") {
+      Blog.getBlogsByUserId(10).then((res) => {
+        // console.log(res);
+        // console.log(res.data);
+        this.blogs = res.data;
+        this.page = res.page;
+        this.total = res.total;
+        this.totalPage = res.totalPage;
+      });
     }
   },
   methods: {
     handleCurrentChange(page) {
-      console.log(page)
-      Blog.getIndexBlogs({page}).then((res) => {
+      console.log(page);
+      Blog.getIndexBlogs({ page }).then((res) => {
         this.blogs = res.data;
         this.page = res.page;
         this.total = res.total;
