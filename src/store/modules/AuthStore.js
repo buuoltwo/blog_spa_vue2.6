@@ -29,6 +29,7 @@ const actions = {
   },
   async logout({commit}){
     // let res = await Auth.logout()
+    // console.log(res)
     await Auth.logout()
     commit('setUser', {user: null})
     commit('setLogin', {isLogin: false})

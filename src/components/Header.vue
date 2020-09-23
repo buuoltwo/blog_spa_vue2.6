@@ -58,8 +58,12 @@ export default {
       'checkLogin'
     ]),
   },
-  created() {
-    this.checkLogin()
+  mounted() {
+    if(!this.user){
+      this.$message.success("欢迎进入在线博客项目,请登录体验完整功能")
+    }else {
+      this.checkLogin()
+    }
   }
 };
 </script>

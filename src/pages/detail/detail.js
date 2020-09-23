@@ -23,6 +23,8 @@ export default {
         this.description = res.data.description
         this.content = res.data.content
         this.user = res.data.user
+      }).catch( () => {
+        this.$router.push({path:'/fatal'})
       })
   }
 }

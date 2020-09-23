@@ -31,6 +31,7 @@ const request = (url, type='GET', data={}) => {
         }
         resolve(res.data)
       }else{
+        console.log("这里是request2..")
         Message.error(res.data.msg)
         reject(res.data)
       }
