@@ -13,5 +13,5 @@ let store = new Vuex.Store({
     // BlogStore
   }
 })
-// window.store = store
+window.store = store
 export default store

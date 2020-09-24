@@ -44,7 +44,7 @@ const routes = [
     component: () => import('../pages/fatal.vue'),
   },
   {
-    path:'/user',
+    path:'/user/:id',
     name:'user',
     component: () => import('../pages/User/user.vue'),
   }

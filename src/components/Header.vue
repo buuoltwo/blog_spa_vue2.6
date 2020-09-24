@@ -26,7 +26,7 @@
         <img class="avatar" :src="user.avatar" :alt="user.username" :title="user.username" />
         <ul>
           <li>
-            <router-link to="my">我的</router-link>
+            <router-link to="/my">我的</router-link>
           </li>
           <li>
             <a href="#" @click="onLogout">注销</a>
@@ -59,11 +59,7 @@ export default {
     ]),
   },
   mounted() {
-    if(!this.user){
-      this.$message.success("欢迎进入在线博客项目,请登录体验完整功能")
-    }else {
-      this.checkLogin()
-    }
+    this.checkLogin()
   }
 };
 </script>
