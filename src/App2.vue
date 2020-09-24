@@ -19,6 +19,7 @@ export default {
 }
 </script>
 <style lang="less">
+@import url('./assets/common.less');
 *, *::before, *::after {
   margin: 0;
 }
