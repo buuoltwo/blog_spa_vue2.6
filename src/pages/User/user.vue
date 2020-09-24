@@ -1,7 +1,7 @@
 <template>
   <div id="user">
     <section class="blog-post">
-      <h1>{{ msg }}</h1>
+      <h1>用户信息</h1>
       <router-link
         class="item"
         v-for="blog in blogs"
@@ -27,11 +27,9 @@
 </template>
 
 <script>
+import Blog from '../../api/blog'
+
 export default {
-  props: {
-    msg: "",
-    msg2: "",
-  },
   data() {
     return {
       blogs: [],
@@ -41,7 +39,8 @@ export default {
     };
   },
   created() {
-    Blog.getBlogsByUserId(10).then((res) => {
+    this.userId = this.$route.params.id
+    Blog.getBlogsByUserId(this.userId).then((res) => {
       this.blogs = res.data;
       this.page = res.page;
       this.total = res.total;
@@ -51,7 +50,7 @@ export default {
   methods: {
     handleCurrentChange(page) {
       console.log(page);
-      Blog.getBlogsByUserId(10,{page}).then((res) => {
+      Blog.getBlogsByUserId(this.userId,{page}).then((res) => {
         this.blogs = res.data;
         this.page = res.page;
         this.total = res.total;
