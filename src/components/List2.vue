@@ -1,19 +1,21 @@
 <template>
   <div id="index">
     <section class="blog-post">
-      <h1>{{msg}}</h1>
+      <h1>{{ msg }}</h1>
       <router-link
         class="item"
         v-for="blog in blogs"
         :key="blog.id"
-        :to="{name:'detail', params:{blogId: blog.id}}"
+        :to="{ name: 'detail', params: { blogId: blog.id } }"
       >
         <figure>
           <img :src="blog.user.avatar" :alt="blog.user.username" />
-          <figcaption>{{blog.user.username}}</figcaption>
+          <figcaption>{{ blog.user.username }}</figcaption>
         </figure>
-        <h3>{{blog.title}}</h3>
-        <p>{{blog.description}}</p>
+        <h3>
+          {{ blog.title }}<span>{{ $friendlyDate(blog.user.createdAt) }}</span>
+        </h3>
+        <p>{{ blog.description }}</p>
       </router-link>
     </section>
     <section class="pagination">
@@ -80,6 +82,8 @@ export default {
 </script>
 
 <style lang="less" scoped>
+@import url("../assets/base.less");
+
 .item {
   display: grid;
   grid: auto auto / 120px 1fr;
@@ -88,6 +92,9 @@ export default {
 
   figure {
     grid-area: ~"1/1/3/2";
+    justify-self: center;
+    text-align: center;
+    margin-left: 0;
 
     img {
       object-fit: contain;
@@ -99,6 +106,13 @@ export default {
   }
   h3 {
     grid-area: ~"1/2/2/3";
+
+    & > span {
+      color: @textLighterColor;
+      font-size: 12px;
+      font-weight: normal;
+      margin: 5px;
+    }
   }
   p {
     grid-area: ~"2/2/3/3";
