@@ -47,6 +47,11 @@ const routes = [
     path:'/user/:id',
     name:'user',
     component: () => import('../pages/User/user.vue'),
+  },
+  {
+    path:'/edit/:blogId',
+    name:'edit',
+    component: () => import('../pages/Edit/edit.vue'),
   }
 ]
 

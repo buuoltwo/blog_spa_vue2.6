@@ -1,6 +1,6 @@
 <template>
   <div id="create">
-    <h1>创建文章</h1>
+    <h1>更新文章</h1>
     <p>文章标题</p>
     <el-input v-model="title" placeholder="请输入内容" clearable></el-input>
     <p>内容简介</p>
@@ -24,7 +24,7 @@
       inactive-color="#ff4949"
     ></el-switch>
     <div class="submit">
-      <el-button type="primary" border-radius="30px" @click="onCreate">创建博客</el-button>
+      <el-button type="primary" border-radius="30px" @click="onCreate">更新博客</el-button>
     </div>
   </div>
 </template>
