@@ -20,9 +20,9 @@ export default {
 </script>
 <style lang="less">
 @import url('./assets/common.less');
-*, *::before, *::after {
-  margin: 0;
-}
+// *, *::before, *::after {
+//   margin: 0;
+// }
 #app {
   // font-family: Avenir, Helvetica, Arial, sans-serif;
   // -webkit-font-smoothing: antialiased;

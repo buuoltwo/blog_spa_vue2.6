@@ -1,16 +1,16 @@
 <template>
   <div id="create">
     <h1>创建文章</h1>
-    <p>文章标题</p>
+    <h3>文章标题</h3>
     <el-input v-model="title" placeholder="请输入内容" clearable></el-input>
-    <p>内容简介</p>
+    <h3>内容简介</h3>
     <el-input
       type="textarea"
       :autosize="{ minRows: 2, maxRows: 4}"
       placeholder="请输入内容"
       v-model="description"
     ></el-input>
-    <p>文章内容</p>
+    <h3>文章内容</h3>
     <el-input
       type="textarea"
       :autosize="{ minRows: 5, maxRows: 30}"
