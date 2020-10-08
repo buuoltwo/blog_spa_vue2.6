@@ -14,7 +14,7 @@ const routes = [
   {
     path: '/register',
     name: 'Register',
-    component: () => import('../pages/register/register.vue')
+    component: () => import('../pages/register/template.vue')
   },
   {
     path: '/login',
@@ -47,6 +47,11 @@ const routes = [
     path:'/user/:id',
     name:'user',
     component: () => import('../pages/User/user.vue'),
+  },
+  {
+    path:'/edit/:blogId',
+    name:'edit',
+    component: () => import('../pages/Edit/edit.vue'),
   }
 ]
 

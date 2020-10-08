@@ -20,7 +20,7 @@
       </div>
     </template>
     <template v-else>
-      <h1>Let's share</h1>
+      <h1><router-link to="/">Let's share</router-link></h1>
        <router-link to="/create"><i class="edit el-icon-plus"></i></router-link>
       <div class="user">
         <img class="avatar" :src="user.avatar" :alt="user.username" :title="user.username" />
@@ -68,18 +68,18 @@ export default {
 <style lang="less" scoped>
 @import "../assets/base.less";
 
-#nav {
-  padding: 30px;
+// #nav {
+//   padding: 30px;
 
-  a {
-    font-weight: bold;
-    color: #2c3e50;
+//   a {
+//     font-weight: bold;
+//     color: #2c3e50;
 
-    &.router-link-exact-active {
-      color: #42b983;
-    }
-  }
-}
+//     &.router-link-exact-active {
+//       color: #42b983;
+//     }
+//   }
+// }
 //
 #header.no-login {
   background-color: @bgColor;
@@ -120,6 +120,10 @@ header.login {
     font-size: 40px;
     text-transform: uppercase;
     flex: 1;
+
+    a {
+      color: #fff;
+    }
   }
 
   .edit {

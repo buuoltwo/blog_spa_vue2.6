@@ -13,6 +13,14 @@
         </figure>
         <h3>{{ blog.title }}</h3>
         <p>{{ blog.description }}</p>
+        <div class="actions">
+          <span
+            ><router-link :to="{ name: 'edit', params: { blogId: blog.id } }"
+              >修改</router-link
+            ></span
+          >
+          <a href="#" @click.prevent="onDelete(blog.id)">删除</a>
+        </div>
       </router-link>
     </section>
     <section class="pagination">
@@ -58,6 +66,17 @@ export default {
         this.blogs = res.data;
         this.total = res.total;
       });
+    },
+    async onDelete(blogId) {
+      // https://element.eleme.cn/#/zh-CN/component/message-box#que-ren-xiao-xi
+      await this.$confirm("此操作将永久删除该文件, 是否继续?", "提示", {
+        confirmButtonText: "确定",
+        cancelButtonText: "取消",
+        type: "warning",
+      });
+      await Blog.deleteBlog({ blogId });
+      this.$message.success("删除成功");
+      this.blogs = this.blogs.filter((blog) => blog.id != blogId);
     },
   },
 };

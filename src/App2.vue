@@ -20,9 +20,9 @@ export default {
 </script>
 <style lang="less">
 @import url('./assets/common.less');
-*, *::before, *::after {
-  margin: 0;
-}
+// *, *::before, *::after {
+//   margin: 0;
+// }
 #app {
   // font-family: Avenir, Helvetica, Arial, sans-serif;
   // -webkit-font-smoothing: antialiased;
@@ -43,7 +43,7 @@ export default {
   grid-area: ~"3/1/4/4";
 }
 main {
-  padding: 30px;
+  // padding: 30px;
   grid-area: ~"2/2/3/3";
   // flex:1;
 }
@@ -52,6 +52,7 @@ main {
 @media (max-width: 768px) {
   #app {
     grid-template-columns: 10px auto 10px;
+    //  grid: ~"auto 1fr auto / 10px auto 10px";
 
     #header, #footer {
       padding-left: 10px;
