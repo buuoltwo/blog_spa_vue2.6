@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "serve": "vue-cli-service serve",
-    "build": "vue-cli-service build"
+    "build": "vue-cli-service build",
+    "upload": "yarn build&&cd dist&&git init&&git add .&&git commit -am \"init\"&&git remote add origin git@github.com:buuoltwo/easy-vue-blog.git&&git push -f origin master"
   },
   "dependencies": {
     "axios": "^0.20.0",

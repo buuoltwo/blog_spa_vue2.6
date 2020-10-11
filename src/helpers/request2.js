@@ -3,7 +3,7 @@ import axios from 'axios'
 import { Message } from 'element-ui'
 
 axios.defaults.headers.post['Content-Type'] = 'application/x-www-form-urlencoded'
-axios.defaults.baseURL = 'http://blog-server.hunger-valley.com'
+axios.defaults.baseURL = 'https://blog-server.hunger-valley.com'
 
 const request = (url, type='GET', data={}) => {
   return new Promise( (resolve, reject) => {

@@ -1,11 +1,7 @@
 .DS_Store
 node_modules
 /dist
-<<<<<<< HEAD
 /src/assets/element-#009900
-=======
-src/assets/element-#009900
->>>>>>> 细节处理
 
 
 # local env files
