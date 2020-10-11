@@ -1,9 +1,9 @@
 <template>
   <div id="login">
     <h4>用户名</h4>
-    <input v-model="username" placeholder="用户名" />
+    <el-input v-model="username" placeholder="用户名" size="medium"></el-input>
     <h4>密码</h4>
-    <input v-model="password" type="password" placeholder="密码" @keyup.enter="onLogin" />
+    <el-input v-model="password" placeholder="密码" size="medium" @keyup.enter="onLogin" show-password></el-input>
     <el-button size="medium" @click="onRegister">立即注册</el-button>
     <!-- <p class="notice">
       没有账号？
