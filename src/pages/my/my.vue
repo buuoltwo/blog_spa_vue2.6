@@ -1,5 +1,6 @@
 <template>
   <div id="my">
+    <section>创建博客后，本页支持更新和删除文章。</section>
     <section class="blog-post">
       <router-link
         v-for="blog in blogs"
@@ -19,7 +20,7 @@
               >修改</router-link
             ></span
           >
-          <a href="#" @click.prevent="onDelete(blog.id)">删除</a>
+          <a class="del" href="#" @click.prevent="onDelete(blog.id)">删除</a>
         </div>
       </router-link>
     </section>
@@ -84,6 +85,10 @@ export default {
 
 <style lang="less">
 @import "../../assets/base.less";
+
+#my {
+  padding: 5rem;
+}
 .item {
   display: grid;
   // grid-area: auto auto / 120px 1fr;
@@ -93,6 +98,8 @@ export default {
   figure {
     grid-area: ~"1/1/3/2";
     text-align: center;
+    margin-left: 0;
+    margin-right: 0;
 
     img {
       width: 60px;
@@ -107,6 +114,16 @@ export default {
   }
   p {
     grid-area: ~"2/2/span 1/span 1";
+  }
+}
+.actions {
+
+  text-align: center;
+  a:hover {
+    color: blueviolet;
+  }
+  a.del {
+    margin-left: .6rem;
   }
 }
 </style>

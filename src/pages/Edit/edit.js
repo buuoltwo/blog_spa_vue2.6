@@ -24,12 +24,14 @@ export default {
     onCreate(){
       // console.log(content)
       let id = this.$route.params.blogId
-      Blog.updateBlog({blogId: id},{title:this.title,description:this.description,content:this.content, atIndex:this.atIndex})
-        .then(res => {
-          console.log(res)
-          this.$message.success(`${res.status} | ${res.msg}`)
-          this.$router.push({path: `/detail/${res.data.id}`})
-        }).catch(() => this.$message.error("..."))
+      // Blog.updateBlog({blogId: id},{title:this.title,description:this.description,content:this.content, atIndex:this.atIndex})
+      //   .then(res => {
+      //     console.log(res)
+      //     this.$message.success(`${res.status} | ${res.msg}`)
+      //     this.$router.push({path: `/detail/${res.data.id}`})
+      //   }).catch(() => this.$message.error("..."))
+      this.$message.error("PATCH接口宕机中...")
+      setTimeout(()=> this.$router.back(), 2000)
     }
   }
 }
