@@ -1,5 +1,5 @@
 <template>
-  <div id="login">
+  <div id="register">
     <fieldset>
       <legend>请注册</legend>
       <h4>用户名</h4>
